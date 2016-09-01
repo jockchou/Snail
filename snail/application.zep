@@ -9,7 +9,7 @@ class Application implements ApplicationInterface
 	
     public function __construct()
     {
-		let this->router = new Router();
+        let this->router = new Router();
     }
 
     public function any(string path, var methods, callable handleFunc) -> <ApplicationInterface>
