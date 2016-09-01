@@ -1,4 +1,4 @@
-namespace Snail\Mvc\Router;
+namespace Snail\Mvc\Route;
 
 class Route implements RouteInterface
 {

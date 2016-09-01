@@ -1,6 +1,5 @@
 <?php
 
-
 use Snail\Mvc\Application;
 
 $app = new Application();

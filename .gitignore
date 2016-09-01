@@ -1,6 +1,7 @@
 # IDE setting file
 .idea/
 *.log
+*.swp
 
 # Cache files, generates by Zephir
 .temp/

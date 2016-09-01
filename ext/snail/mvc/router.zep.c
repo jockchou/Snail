@@ -71,7 +71,7 @@ PHP_METHOD(Snail_Mvc_Router, add) {
 
 
 	ZEPHIR_INIT_VAR(route);
-	object_init_ex(route, snail_mvc_router_route_ce);
+	object_init_ex(route, snail_mvc_route_route_ce);
 	ZEPHIR_CALL_METHOD(NULL, route, "__construct", NULL, 1, path, httpMethods);
 	zephir_check_call_status();
 	if (position == 0) {

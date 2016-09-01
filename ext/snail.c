@@ -28,11 +28,11 @@
 
 
 zend_class_entry *snail_mvc_applicationinterface_ce;
-zend_class_entry *snail_mvc_router_routeinterface_ce;
+zend_class_entry *snail_mvc_route_routeinterface_ce;
 zend_class_entry *snail_mvc_routerinterface_ce;
 zend_class_entry *snail_mvc_application_ce;
+zend_class_entry *snail_mvc_route_route_ce;
 zend_class_entry *snail_mvc_router_ce;
-zend_class_entry *snail_mvc_router_route_ce;
 
 ZEND_DECLARE_MODULE_GLOBALS(snail)
 
@@ -59,11 +59,11 @@ static PHP_MINIT_FUNCTION(snail)
 #endif
 	REGISTER_INI_ENTRIES();
 	ZEPHIR_INIT(Snail_Mvc_ApplicationInterface);
+	ZEPHIR_INIT(Snail_Mvc_Route_RouteInterface);
 	ZEPHIR_INIT(Snail_Mvc_RouterInterface);
-	ZEPHIR_INIT(Snail_Mvc_Router_RouteInterface);
 	ZEPHIR_INIT(Snail_Mvc_Application);
+	ZEPHIR_INIT(Snail_Mvc_Route_Route);
 	ZEPHIR_INIT(Snail_Mvc_Router);
-	ZEPHIR_INIT(Snail_Mvc_Router_Route);
 
 #if PHP_VERSION_ID < 50500
 	setlocale(LC_ALL, old_lc_all);

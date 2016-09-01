@@ -1,6 +1,6 @@
 namespace Snail\Mvc;
 
-use Snail\Mvc\Router\RouteInterface;
+use Snail\Mvc\Route\RouteInterface;
 
 interface RouterInterface
 {
