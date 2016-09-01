@@ -6,7 +6,6 @@ ZEPHIR_INIT_CLASS(Snail_Mvc_RouterInterface);
 ZEND_BEGIN_ARG_INFO_EX(arginfo_snail_mvc_routerinterface_add, 0, 0, 0)
 	ZEND_ARG_INFO(0, path)
 	ZEND_ARG_INFO(0, httpMethods)
-	ZEND_ARG_INFO(0, position)
 ZEND_END_ARG_INFO()
 
 ZEND_BEGIN_ARG_INFO_EX(arginfo_snail_mvc_routerinterface_handlerequest, 0, 0, 1)

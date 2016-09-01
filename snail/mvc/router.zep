@@ -11,19 +11,11 @@ class Router implements RouterInterface
         return this->matchedRoute;
     }
 
-    public function add(string path = null, var httpMethods = null, int position = self::POSITION_LAST) -> <RouteInterface>
+    public function add(string path = null, var httpMethods = null) -> <RouteInterface>
     {
-        var route;
-
-        let route = new Route(path, httpMethods);
-
-        if position == self::POSITION_FIRST {
-            let this->routes[] = route;
-        } elseif position == self::POSITION_LAST {
-            let this->routes = array_merge([route], this->routes);
-        } else {
-            throw new \Exception("Invalid route position");
-        }
+		var route;
+		let route = new Route(path, httpMethods);
+        let this->routes[] = route;
 		
         return route;
     }
@@ -37,15 +29,35 @@ class Router implements RouterInterface
         }
     }
 
-    public function handleRequest(<ApplicationInterface> application) {
-        var route, methods, path, handler, routeFound = false;
-        var pathInfo = _SERVER["PATH_INFO"];
-        var reqMethod = _SERVER["REQUEST_METHOD"];
+	private function checkRule(string uri, string path) -> boolean
+	{
+		var pos;
+		let pos = strpos(uri, "?");
+		
+		if pos !== false {
+			let uri = substr(uri, 0, pos);
+		}
+		
+		if uri === path {
+			return true;
+		} elseif rtrim(uri, "/") === rtrim(path, "/") {
+			return true;
+		} else {
+			return false;
+		}
+		
+	}
 
+    public function handleRequest(<ApplicationInterface> application) {
+        var route, methods, path, handler, reqUri, reqMethod, routeFound = false;
+		
+        let reqUri = _SERVER["REQUEST_URI"];
+        let reqMethod = _SERVER["REQUEST_METHOD"];
+		
         for route in this->routes {
             let methods = route->getHttpMethods();
             let path = route->getPath();
-            if this->checkMethod(reqMethod, methods) && pathInfo === path {
+            if this->checkMethod(reqMethod, methods) && this->checkRule(reqUri, path) {
                 let this->matchedRoute = route;
                 let routeFound = true;
                 break;

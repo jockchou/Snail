@@ -4,7 +4,9 @@ use Snail\Application;
 
 $app = new Application();
 
-$app->any('/hello', ['*'], function() use($app) {
+$app->any('/', null, function() {
+	echo "Hello Snail";
+})->any('/hello', ['post', 'get'], function() use($app) {
     echo "hello";
 })->get('/say', function() {
     echo "say";

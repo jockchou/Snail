@@ -15,6 +15,7 @@
 #include "kernel/object.h"
 #include "kernel/memory.h"
 #include "kernel/operators.h"
+#include "kernel/array.h"
 #include "kernel/fcall.h"
 #include "kernel/hash.h"
 #include "kernel/string.h"
@@ -42,7 +43,7 @@ ZEPHIR_INIT_CLASS(Snail_Mvc_Route_Route) {
 PHP_METHOD(Snail_Mvc_Route_Route, __construct) {
 
 	int ZEPHIR_LAST_CALL_STATUS;
-	zval *path_param = NULL, *httpMethods = NULL, *_0, *_1, *_2;
+	zval *path_param = NULL, *httpMethods = NULL, *methods = NULL, *_0, *_1, *_2, *_3$$5;
 	zval *path = NULL;
 
 	ZEPHIR_MM_GROW();
@@ -67,7 +68,20 @@ PHP_METHOD(Snail_Mvc_Route_Route, __construct) {
 	ZEPHIR_INIT_ZVAL_NREF(_2);
 	ZVAL_LONG(_2, (zephir_get_numberval(_1) + 1));
 	zephir_update_static_property_ce(snail_mvc_route_route_ce, SL("uniqueId"), &_2 TSRMLS_CC);
-	ZEPHIR_CALL_METHOD(NULL, this_ptr, "sethttpmethods", NULL, 0, httpMethods);
+	if (Z_TYPE_P(httpMethods) == IS_STRING) {
+		ZEPHIR_INIT_VAR(methods);
+		zephir_create_array(methods, 1, 0 TSRMLS_CC);
+		zephir_array_fast_append(methods, httpMethods);
+	} else if (Z_TYPE_P(httpMethods) == IS_ARRAY) {
+		ZEPHIR_CPY_WRT(methods, httpMethods);
+	} else {
+		ZEPHIR_INIT_NVAR(methods);
+		zephir_create_array(methods, 1, 0 TSRMLS_CC);
+		ZEPHIR_INIT_VAR(_3$$5);
+		ZVAL_STRING(_3$$5, "*", 1);
+		zephir_array_fast_append(methods, _3$$5);
+	}
+	ZEPHIR_CALL_METHOD(NULL, this_ptr, "sethttpmethods", NULL, 0, methods);
 	zephir_check_call_status();
 	ZEPHIR_MM_RESTORE();
 
@@ -126,7 +140,7 @@ PHP_METHOD(Snail_Mvc_Route_Route, setHttpMethods) {
 	zephir_get_arrval(httpMethods, httpMethods_param);
 
 
-	zephir_is_iterable(httpMethods, &_1, &_0, 0, 0, "snail/mvc/route/route.zep", 51);
+	zephir_is_iterable(httpMethods, &_1, &_0, 0, 0, "snail/mvc/route/route.zep", 61);
 	for (
 	  ; zephir_hash_get_current_data_ex(_1, (void**) &_2, &_0) == SUCCESS
 	  ; zephir_hash_move_forward_ex(_1, &_0)

@@ -17,7 +17,7 @@ PHP_METHOD(Snail_Application, connect);
 
 ZEND_BEGIN_ARG_INFO_EX(arginfo_snail_application_any, 0, 0, 3)
 	ZEND_ARG_INFO(0, path)
-	ZEND_ARG_ARRAY_INFO(0, methods, 0)
+	ZEND_ARG_INFO(0, methods)
 	ZEND_ARG_INFO(0, handleFunc)
 ZEND_END_ARG_INFO()
 

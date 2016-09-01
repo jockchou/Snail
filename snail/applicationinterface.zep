@@ -18,7 +18,7 @@ interface ApplicationInterface
 
     public function connect(string path, callable handleFunc) -> <ApplicationInterface>;
 
-    public function any(string path, array methods, callable handleFunc) -> <ApplicationInterface>;
+    public function any(string path, var methods, callable handleFunc) -> <ApplicationInterface>;
 
     public function run() -> void;
 }

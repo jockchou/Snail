@@ -51,15 +51,13 @@ PHP_METHOD(Snail_Application, __construct) {
 PHP_METHOD(Snail_Application, any) {
 
 	int ZEPHIR_LAST_CALL_STATUS;
-	zval *methods = NULL;
-	zval *path_param = NULL, *methods_param = NULL, *handleFunc, *_0, *_1 = NULL;
+	zval *path_param = NULL, *methods, *handleFunc, *_0, *_1 = NULL;
 	zval *path = NULL;
 
 	ZEPHIR_MM_GROW();
-	zephir_fetch_params(1, 3, 0, &path_param, &methods_param, &handleFunc);
+	zephir_fetch_params(1, 3, 0, &path_param, &methods, &handleFunc);
 
 	zephir_get_strval(path, path_param);
-	zephir_get_arrval(methods, methods_param);
 
 
 	_0 = zephir_fetch_nproperty_this(this_ptr, SL("router"), PH_NOISY_CC);

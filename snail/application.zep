@@ -12,7 +12,7 @@ class Application implements ApplicationInterface
 		let this->router = new Router();
     }
 
-    public function any(string path, array methods, callable handleFunc) -> <ApplicationInterface>
+    public function any(string path, var methods, callable handleFunc) -> <ApplicationInterface>
     {
         this->router->add(path, methods)->setHandler(handleFunc);
         return this;
