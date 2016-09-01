@@ -1,0 +1,4 @@
+make: Warning: File `/media/sf_vm_share/snail/ext/snail/mvc/router.zep.c' has modification time 2.1 s in the future
+make: warning:  Clock skew detected.  Your build may be incomplete.
+make: Warning: File `/media/sf_vm_share/snail/ext/modules/snail.la' has modification time 2.3 s in the future
+make: warning:  Clock skew detected.  Your build may be incomplete.
