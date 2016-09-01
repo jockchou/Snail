@@ -106,7 +106,7 @@ PHP_METHOD(Snail_Mvc_Router, checkMethod) {
 
 	_0 = zephir_fast_count_int(methods TSRMLS_CC) > 0;
 	if (_0) {
-		zephir_array_fetch_long(&_1, methods, 0, PH_NOISY | PH_READONLY, "snail/mvc/router.zep", 32 TSRMLS_CC);
+		zephir_array_fetch_long(&_1, methods, 0, PH_NOISY | PH_READONLY, "snail/mvc/router.zep", 33 TSRMLS_CC);
 		_0 = ZEPHIR_IS_STRING_IDENTICAL(_1, "*");
 	}
 	if (_0) {
@@ -134,11 +134,11 @@ PHP_METHOD(Snail_Mvc_Router, handleRequest) {
 
 	routeFound = 0;
 	ZEPHIR_OBS_VAR(pathInfo);
-	zephir_array_fetch_string(&pathInfo, _SERVER, SL("PATH_INFO"), PH_NOISY, "snail/mvc/router.zep", 41 TSRMLS_CC);
+	zephir_array_fetch_string(&pathInfo, _SERVER, SL("PATH_INFO"), PH_NOISY, "snail/mvc/router.zep", 42 TSRMLS_CC);
 	ZEPHIR_OBS_VAR(reqMethod);
-	zephir_array_fetch_string(&reqMethod, _SERVER, SL("REQUEST_METHOD"), PH_NOISY, "snail/mvc/router.zep", 42 TSRMLS_CC);
+	zephir_array_fetch_string(&reqMethod, _SERVER, SL("REQUEST_METHOD"), PH_NOISY, "snail/mvc/router.zep", 43 TSRMLS_CC);
 	_0 = zephir_fetch_nproperty_this(this_ptr, SL("routes"), PH_NOISY_CC);
-	zephir_is_iterable(_0, &_2, &_1, 0, 0, "snail/mvc/router.zep", 54);
+	zephir_is_iterable(_0, &_2, &_1, 0, 0, "snail/mvc/router.zep", 55);
 	for (
 	  ; zephir_hash_get_current_data_ex(_2, (void**) &_3, &_1) == SUCCESS
 	  ; zephir_hash_move_forward_ex(_2, &_1)
@@ -169,7 +169,7 @@ PHP_METHOD(Snail_Mvc_Router, handleRequest) {
 			zephir_check_call_status();
 			RETURN_MM();
 		} else {
-			ZEPHIR_THROW_EXCEPTION_DEBUG_STR(zend_exception_get_default(TSRMLS_C), "Invalid callable handler", "snail/mvc/router.zep", 59);
+			ZEPHIR_THROW_EXCEPTION_DEBUG_STR(zend_exception_get_default(TSRMLS_C), "Invalid callable handler", "snail/mvc/router.zep", 60);
 			return;
 		}
 	}

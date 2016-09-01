@@ -7,10 +7,10 @@ class Router implements RouterInterface
     protected routes = [];
     protected matchedRoute;
 
-
-    public function getMatchedRoute() {
+    public function getMatchedRoute() -> <Route> {
         return this->matchedRoute;
     }
+
     public function add(string path = null, var httpMethods = null, int position = self::POSITION_LAST) -> <RouteInterface>
     {
         var route;
@@ -24,6 +24,7 @@ class Router implements RouterInterface
         } else {
             throw new \Exception("Invalid route position");
         }
+		
         return route;
     }
 
@@ -62,4 +63,3 @@ class Router implements RouterInterface
         return false;
     }
 }
-
