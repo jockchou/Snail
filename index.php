@@ -1,15 +1,13 @@
-
 <?php
 
 use Snail\Application;
 
 $app = new Application();
 
-$app->any('/hello', ['*'], function($application) {
+$app->any('/hello', ['*'], function() use($app) {
     echo "hello";
 })->get('/say', function() {
     echo "say";
-})->get('/greeting', function($application) {
-    echo "greeting<br>";
-    echo "route id: " . $application->getRouter()->getMatchedRoute()->getId();
+})->get('/greeting', function() use($app) {
+    echo "greeting";
 })->run();

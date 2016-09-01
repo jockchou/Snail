@@ -6,19 +6,15 @@ class Application implements ApplicationInterface
 {
     protected router;
 
+	
     public function __construct()
     {
-        let this->router = new Router();
-    }
-
-    public function getRouter() -> <Router>
-    {
-        return this->router;
+		let this->router = new Router();
     }
 
     public function any(string path, array methods, callable handleFunc) -> <ApplicationInterface>
     {
-        var route = this->router->add(path, methods)->setHandler(handleFunc);
+        this->router->add(path, methods)->setHandler(handleFunc);
         return this;
     }
 

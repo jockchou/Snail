@@ -4,7 +4,6 @@ extern zend_class_entry *snail_application_ce;
 ZEPHIR_INIT_CLASS(Snail_Application);
 
 PHP_METHOD(Snail_Application, __construct);
-PHP_METHOD(Snail_Application, getRouter);
 PHP_METHOD(Snail_Application, any);
 PHP_METHOD(Snail_Application, run);
 PHP_METHOD(Snail_Application, get);
@@ -64,7 +63,6 @@ ZEND_END_ARG_INFO()
 
 ZEPHIR_INIT_FUNCS(snail_application_method_entry) {
 	PHP_ME(Snail_Application, __construct, NULL, ZEND_ACC_PUBLIC|ZEND_ACC_CTOR)
-	PHP_ME(Snail_Application, getRouter, NULL, ZEND_ACC_PUBLIC)
 	PHP_ME(Snail_Application, any, arginfo_snail_application_any, ZEND_ACC_PUBLIC)
 	PHP_ME(Snail_Application, run, NULL, ZEND_ACC_PUBLIC)
 	PHP_ME(Snail_Application, get, arginfo_snail_application_get, ZEND_ACC_PUBLIC)

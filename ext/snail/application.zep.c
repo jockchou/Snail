@@ -48,19 +48,11 @@ PHP_METHOD(Snail_Application, __construct) {
 
 }
 
-PHP_METHOD(Snail_Application, getRouter) {
-
-	
-
-	RETURN_MEMBER(this_ptr, "router");
-
-}
-
 PHP_METHOD(Snail_Application, any) {
 
 	int ZEPHIR_LAST_CALL_STATUS;
 	zval *methods = NULL;
-	zval *path_param = NULL, *methods_param = NULL, *handleFunc, *route = NULL, *_0, *_1 = NULL;
+	zval *path_param = NULL, *methods_param = NULL, *handleFunc, *_0, *_1 = NULL;
 	zval *path = NULL;
 
 	ZEPHIR_MM_GROW();
@@ -73,7 +65,7 @@ PHP_METHOD(Snail_Application, any) {
 	_0 = zephir_fetch_nproperty_this(this_ptr, SL("router"), PH_NOISY_CC);
 	ZEPHIR_CALL_METHOD(&_1, _0, "add", NULL, 0, path, methods);
 	zephir_check_call_status();
-	ZEPHIR_CALL_METHOD(&route, _1, "sethandler", NULL, 0, handleFunc);
+	ZEPHIR_CALL_METHOD(NULL, _1, "sethandler", NULL, 0, handleFunc);
 	zephir_check_call_status();
 	RETURN_THIS();
 
