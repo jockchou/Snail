@@ -1,2 +1,3 @@
 # Snail
-A PHP-MVC framework worked as php-extension
+
+A fast PHP MVC framework written in Zephir, built in php-extension
