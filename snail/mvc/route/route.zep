@@ -10,21 +10,21 @@ class Route implements RouteInterface
 
     public function __construct(string path = null, var httpMethods = null)
     {
-		var methods;
+        var methods;
 
         let this->id = self::uniqueId;
         let this->path = path;
 
         let self::uniqueId = self::uniqueId + 1;
-		
-		if typeof httpMethods === "string" {
-			let methods = [httpMethods];
-		} elseif typeof httpMethods === "array" {
-			let methods = httpMethods;
-		} else {
-			let methods = ["*"];
-		}
-		
+        
+        if typeof httpMethods === "string" {
+            let methods = [httpMethods];
+        } elseif typeof httpMethods === "array" {
+            let methods = httpMethods;
+        } else {
+            let methods = ["*"];
+        }
+        
         this->setHttpMethods(methods);
     }
 
