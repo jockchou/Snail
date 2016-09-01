@@ -1,5 +1,7 @@
 # IDE setting file
 .idea/
+*.log
+
 # Cache files, generates by Zephir
 .temp/
 .libs/
