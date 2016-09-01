@@ -1,4 +1,4 @@
-namespace Snail\Mvc;
+namespace Snail;
 
 interface ApplicationInterface
 {

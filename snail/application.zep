@@ -1,7 +1,6 @@
-namespace Snail\Mvc;
+namespace Snail;
 
 use Snail\Mvc\Router;
-use Snail\Mvc\ApplicationInterface;
 
 class Application implements ApplicationInterface
 {
